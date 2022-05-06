@@ -4,6 +4,8 @@
 $black: #020203;
 $white: #ffffff;
 $red: #E60000;
+$light-grey: #FBFBFB;
+
 
 
 *{
@@ -132,6 +134,17 @@ header{
 
 .hello_message{
     font-size: map-get($font_size, '18px');
+}
+
+.activity-graph{
+    background-color: $light-grey;
+    border-radius: 5px;
+    padding: 24px 32px;
+    &--name{
+        font-size: 1rem;
+
+        margin-bottom: .5rem;
+    }
 }
 
 

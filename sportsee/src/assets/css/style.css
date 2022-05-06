@@ -11221,4 +11221,14 @@ header .menu-top ul li a {
   font-size: 1.125rem;
 }
 
+.activity-graph {
+  background-color: #FBFBFB;
+  border-radius: 5px;
+  padding: 24px 32px;
+}
+.activity-graph--name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 /*# sourceMappingURL=style.css.map */
