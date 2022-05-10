@@ -1,56 +1,23 @@
 import MenuLeft from '../../components/MenuLeft/index'
-import {ApiUserName, ApiActivity} from '../../utils/ApiData/index'
+import {ApiUserName, ApiActivity, ApiAverage} from '../../utils/ApiData/index'
 import { useParams } from 'react-router-dom'
-import SimpleBarChart from '../../components/SimpleBarChart/index'
+import SportseeBarChart from '../../components/SimpleBarChart/index'
+import SportseeLineChart from '../../components/SportseeLineChart/index'
 import { useEffect, useState } from 'react'
+import { ResponsiveContainer } from 'recharts';
 
 
 
 function Home() {
 
-    const testData = [
-        {
-          "name": "Page A",
-          "uv": 4000,
-          "pv": 2400
-        },
-        {
-          "name": "Page B",
-          "uv": 3000,
-          "pv": 1398
-        },
-        {
-          "name": "Page C",
-          "uv": 2000,
-          "pv": 9800
-        },
-        {
-          "name": "Page D",
-          "uv": 2780,
-          "pv": 3908
-        },
-        {
-          "name": "Page E",
-          "uv": 1890,
-          "pv": 4800
-        },
-        {
-          "name": "Page F",
-          "uv": 2390,
-          "pv": 3800
-        },
-        {
-          "name": "Page G",
-          "uv": 3490,
-          "pv": 4300
-        }
-      ]
+
 
     const helloMessage =  'Félicitation ! Vous avez explosé vos objectifs hier 👏'
     let { userId } = useParams({})
 
     const [userName, setUserName] = useState(null)
     const [session, setSession] = useState(null)
+    const [average, setAverage] = useState(null)
    
     useEffect(() => {
         const fetchData = async () => {
@@ -59,12 +26,16 @@ function Home() {
 
             const currentSession = await ApiActivity(userId)
             setSession(currentSession)
+
+            const currentAverage = await ApiAverage(userId)
+            setAverage(currentAverage)
         }
       
         fetchData()
       }, [])
 
 
+      
     return(
         <div className="container-fluid menu-left-container">
             
@@ -80,8 +51,23 @@ function Home() {
                     <div className='row'>
                         <div className='col-9'>
                             
-                            {/* {categ && <SimpleBarChart categ={categ} />} */}
-                            <SimpleBarChart  Data={session} />
+                          <div className='row'>
+                            <div className='col-12'>
+                              {/* <ResponsiveContainer> */}
+                                <SportseeBarChart  Data={session} />
+                              {/* </ResponsiveContainer> */}
+                              
+                            </div>
+                            <div className='col-4'>
+                              <SportseeLineChart  Data={average} />
+                            </div>
+                            <div className='col-4'>
+                            2
+                            </div>
+                            <div className='col-4'>
+                             3
+                            </div>
+                          </div>
 
                         </div>
                         <div className='col-3'>222</div>

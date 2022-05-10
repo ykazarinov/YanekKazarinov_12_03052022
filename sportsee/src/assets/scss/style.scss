@@ -140,11 +140,18 @@ header{
     background-color: $light-grey;
     border-radius: 5px;
     padding: 24px 32px;
+    margin-bottom: 30px;
     &--name{
         font-size: 1rem;
 
         margin-bottom: .5rem;
     }
+}
+
+.average-graph{
+    background-color: $red;
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 
