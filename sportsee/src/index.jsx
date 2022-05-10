@@ -16,7 +16,7 @@ root.render(
     <Router>
       <Header />
         <Routes>
-          <Route exact path="/:userId" element={<Home />} />
+          <Route path="/:userId" render={(props) => <Home {...props}/>}  element={<Home />} />
         </Routes>
 
 
