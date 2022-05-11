@@ -48,4 +48,10 @@ async function ApiAverage(userId){
     return newSessions
 }
 
-export {ApiUserName, ApiActivity, ApiAverage};
+async function ApiPerformance(userId){
+    const response = await fetch(`http://localhost:3000/user/${userId}/performance`)
+    const data = await response.json();
+    return data
+}
+
+export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance};

@@ -1,45 +1,73 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import React from 'react';
+import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+// import React from 'react';
 
 function SportseeLineChart({Data}){
 
   const renderLineChart = (
     
-    <LineChart
-    width={230}
-    height={230}
-    data={Data}
-    margin={{
-      top: 20,
-      right: 20,
-      left: 20,
-      bottom: 20,
-    }}
-  >
+    <AreaChart
+      width={230}
+      height={230}
+      data={Data}
+      margin={{ top: 10, right: 10, bottom: -30, left: 15 }}
+     
+    >
 
     <XAxis 
       dataKey="name" 
       tickLine={false}
-      tickSize={15}
+      tickSize={-30}
       axisLine={false}
-      tick={{fill: '#ffffff'}}
+      tick={{fill: 'rgba(255, 255, 255, .5)'}}
     />
 
-    <Tooltip />
+    <Tooltip 
+      filterNull={false}
+      separator=""
+      itemStyle={{
+          color:"#000000",
+          backgroundColor: "#ffffff", 
+          fontSize:".6rem", 
+          padding: "0rem",
+          margin: 0,
+          border: 0
+      }} 
+      formatter={
+          (name, value) => [name, ""] 
 
-    <Line 
-      type="monotone" 
+      }
+      contentStyle={{
+          padding: ".5rem",
+          backgroundColor: "#ffffff", 
+          border: 0
+      }}
+      labelStyle={{
+          display: "none"
+      }}
+    />
+
+
+    <Area 
+      type="natural" 
       dataKey="pv" 
       stroke="#ffffff" 
-      activeDot={{ r: 8 }}
-      dot={false} />
+      activeDot={{ stroke: 'rgba(255, 255, 255, .5)', strokeWidth: 10, r: 3 }}
+      dot={false}
+      unit="min"
+      strokeWidth={2}
+      connectNulls={true}
+      fillOpacity={1} 
+      fill="rgba(255, 255, 255, .1)"
+      
+      
+      />
   
-  </LineChart>
+  </AreaChart>
 
   )
   return(
     <section className='average-graph'>
-        {/* <p className='activity-graph--name'>Activité quotidienne</p> */}
+        <p className='average-graph--name'>Durée moyenne des sessions</p>
         
         {renderLineChart}
       

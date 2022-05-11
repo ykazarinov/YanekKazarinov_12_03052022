@@ -80,7 +80,7 @@ header{
     flex-direction: column;
     justify-content: space-between;
     max-width: 117px;
-    height: calc(100vh - 91px);
+    
     .menu-left{
        
 
@@ -152,6 +152,16 @@ header{
     background-color: $red;
     border-radius: 5px;
     margin-bottom: 30px;
+    position: relative;
+    &--name{
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        color: rgba($color: $white, $alpha: .5);
+        width: 70%;
+        font-size: map-get($font_size, '14px');
+
+    }
 }
 
 
