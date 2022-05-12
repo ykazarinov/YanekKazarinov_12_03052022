@@ -11255,4 +11255,37 @@ header .menu-top ul li a {
   align-items: center;
 }
 
+.score-graph {
+  background-color: #FBFBFB;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.score_label {
+  position: absolute;
+  z-index: 4;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: calc(50% - 2rem);
+  top: calc(50% - 2rem);
+  flex-direction: column;
+}
+.score_label--prc {
+  font-size: 1.625rem;
+  color: #020203;
+  display: block;
+}
+.score_label--text {
+  color: #74798c;
+  display: block;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */

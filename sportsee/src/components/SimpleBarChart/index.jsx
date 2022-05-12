@@ -2,7 +2,7 @@
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 // import React from 'react'
 
-import Test from '../Test/index'
+
 
 function SportseeBarChart({Data}){
     // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 500, pv: 1400, amt: 1400}];

@@ -55,10 +55,30 @@ async function ApiPerformance(userId){
     kindNames.map((kindName, index) => {
         data.data.data[index].kindName = kindName
     })
-
-  
-
     return data.data.data
 }
 
-export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance};
+async function ApiScore(userId){
+    const response = await fetch(`http://localhost:3000/user/${userId}`);
+    const data = await response.json();
+   
+    const score = [
+        {
+            "name": "25-29",
+            "value": 0.5,
+            "fill": "#ffffff"
+        },
+          {
+            "name": "Group A",
+            "value": data.data.todayScore,
+            "fill": "#FF0000"
+        }
+
+
+]
+
+
+    return score
+}
+
+export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore};

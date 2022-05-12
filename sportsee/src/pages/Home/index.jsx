@@ -1,9 +1,11 @@
 import MenuLeft from '../../components/MenuLeft/index'
-import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance} from '../../utils/ApiData/index'
+import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore} from '../../utils/ApiData/index'
 import { useParams } from 'react-router-dom'
 import SportseeBarChart from '../../components/SimpleBarChart/index'
 import SportseeLineChart from '../../components/SportseeLineChart/index'
 import SportseeRadarChart from '../../components/SportseeRadarChart/index'
+import SportseePieChart from '../../components/SportseePieChart/index'
+
 import { Component } from 'react'
 import { ResponsiveContainer } from 'recharts';
 
@@ -23,7 +25,8 @@ class Home extends Component {
       currentUserName:'',
       currentSession: {},
       currentAverage: {},
-      currentPerformance: {}
+      currentPerformance: {},
+      currentScore: {}
     }
   }
 
@@ -42,6 +45,9 @@ class Home extends Component {
 
         const currentPerformance = await ApiPerformance(userId)
         this.setState({currentPerformance})
+
+        const currentScore = await ApiScore(userId)
+        this.setState({currentScore})
         
     }
 
@@ -83,7 +89,7 @@ class Home extends Component {
                         <SportseeRadarChart Data={this.state.currentPerformance}/>
                       </div>
                       <div className='col-4'>
-                       3
+                        <SportseePieChart Data={this.state.currentScore}/>
                       </div>
                     </div>
 

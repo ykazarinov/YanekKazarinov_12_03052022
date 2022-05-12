@@ -6,6 +6,7 @@ $white: #ffffff;
 $red: #E60000;
 $light-grey: #FBFBFB;
 $dark-grey: #282D30;
+$grey-text: #74798c;
 
 
 
@@ -18,6 +19,7 @@ $dark-grey: #282D30;
 $size_index: 0.0625;
 $font_size: (
     '24px': calc(24rem *  $size_index),
+    '26px': calc(26rem *  $size_index),
     '36px': calc(36rem * $size_index),
     '48px': calc(48rem * $size_index),
     '18px': calc(18rem * $size_index),
@@ -173,6 +175,42 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.score-graph{
+    background-color: $light-grey;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+
+.score_label{
+    position: absolute;
+    z-index: 4;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: calc(50% - 2rem);
+    top: calc(50% - 2rem);
+    flex-direction: column;
+
+    &--prc{
+        font-size: map-get($font_size, '26px');
+        color: $black;
+        display: block;
+    }
+    &--text{
+        font-size: map-get($font_size, '16px');
+        color: $grey-text;
+        display: block;
+        text-align: center;
+    }
 }
 
 
