@@ -11246,4 +11246,13 @@ header .menu-top ul li a {
   font-size: 0.875rem;
 }
 
+.performance-graph {
+  background-color: #282D30;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=style.css.map */

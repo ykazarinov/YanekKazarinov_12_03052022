@@ -2,6 +2,8 @@
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 // import React from 'react'
 
+import Test from '../Test/index'
+
 function SportseeBarChart({Data}){
     // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 500, pv: 1400, amt: 1400}];
     
@@ -12,7 +14,7 @@ function SportseeBarChart({Data}){
     const renderLineChart = (
         
         
-        //  <ResponsiveContainer width="100%" height="100%"> 
+         
             <BarChart 
                 width={730} 
                 height={250} 
@@ -37,7 +39,7 @@ function SportseeBarChart({Data}){
                     orientation='right' 
                     dataKey={'pv'}  
                     // type="number" 
-                    domain={[73, 82]} 
+                    domain={['dataMin-1', 'dataMax+1']} 
                     tickLine={false}
                     tickSize={15}
                     tick={{stroke: '#9B9EAC', strokeWidth: 0}}
@@ -48,7 +50,7 @@ function SportseeBarChart({Data}){
                     orientation='right' 
                     dataKey={'pv'}  
                     // type="number" 
-                    domain={[100, 400]} 
+                    domain={[100, 500]} 
                     tickLine={false}
                     tickSize={15}
                     hide={true}
@@ -112,14 +114,21 @@ function SportseeBarChart({Data}){
                   
                 />
             </BarChart>
-        //    </ResponsiveContainer> 
+           
     
     );
 return(
     <section className='activity-graph'>
-        <p className='activity-graph--name'>Activité quotidienne</p>
-        {renderLineChart}
-    </section>
+         <p className='activity-graph--name'>Activité quotidienne</p> 
+        
+       
+             {renderLineChart}
+       
+       
+           
+      
+      
+    </section> 
     
 )
 }

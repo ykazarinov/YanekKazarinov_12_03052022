@@ -3,15 +3,17 @@ import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance} from '../../utils/
 import { useParams } from 'react-router-dom'
 import SportseeBarChart from '../../components/SimpleBarChart/index'
 import SportseeLineChart from '../../components/SportseeLineChart/index'
+import SportseeRadarChart from '../../components/SportseeRadarChart/index'
 import { Component } from 'react'
 import { ResponsiveContainer } from 'recharts';
 
-
+//I use a class wrapped in a functional component so that the hook useParams can be used.
 
 function withParams(Component) {
   return props => <Component {...props} params={useParams({})} />;
-  // let { userId } = useParams({})
+
 }
+
 
 class Home extends Component {
 
@@ -78,7 +80,7 @@ class Home extends Component {
                         <SportseeLineChart  Data={this.state.currentAverage} />
                       </div>
                       <div className='col-4'>
-                      2
+                        <SportseeRadarChart Data={this.state.currentPerformance}/>
                       </div>
                       <div className='col-4'>
                        3

@@ -1,4 +1,3 @@
-
 async function ApiUserName(userId){
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
@@ -19,7 +18,6 @@ async function ApiActivity(userId){
     // Add new property "name" to object
     newSessions.map((session, index) => {
         session.name = index+1
-        // session.uv = session.uv / 2.5
     })
    
     return newSessions
@@ -35,7 +33,6 @@ async function ApiAverage(userId){
     var str = JSON.stringify(data.data.sessions);
     // str = str.replace(/day/g, 'name');
     str = str.replace(/sessionLength/g, 'pv');
-
     
     let newSessions = JSON.parse(str);
 
@@ -44,14 +41,24 @@ async function ApiAverage(userId){
         session.name = days[index]
        
     })
-    console.log(newSessions)
     return newSessions
 }
 
 async function ApiPerformance(userId){
     const response = await fetch(`http://localhost:3000/user/${userId}/performance`)
     const data = await response.json();
-    return data
+
+
+
+    let kindNames = Object.values(data.data.kind)
+    
+    kindNames.map((kindName, index) => {
+        data.data.data[index].kindName = kindName
+    })
+
+  
+
+    return data.data.data
 }
 
 export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance};

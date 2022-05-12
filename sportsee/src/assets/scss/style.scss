@@ -5,6 +5,8 @@ $black: #020203;
 $white: #ffffff;
 $red: #E60000;
 $light-grey: #FBFBFB;
+$dark-grey: #282D30;
+
 
 
 
@@ -162,6 +164,15 @@ header{
         font-size: map-get($font_size, '14px');
 
     }
+}
+
+.performance-graph{
+    background-color: $dark-grey;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
