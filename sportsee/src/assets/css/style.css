@@ -11264,6 +11264,13 @@ header .menu-top ul li a {
   align-items: center;
   position: relative;
 }
+.score-graph--name {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  font-size: 0.875rem;
+  color: #020203;
+}
 
 .score_label {
   position: absolute;
@@ -11286,6 +11293,37 @@ header .menu-top ul li a {
   color: #74798c;
   display: block;
   text-align: center;
+}
+
+.vitamine-block {
+  background-color: #FBFBFB;
+  border-radius: 5px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 39px;
+}
+.vitamine-block--image {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+  border-radius: 6px;
+}
+.vitamine-block--content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.vitamine-block--content--value {
+  font-size: 1.25rem;
+  color: #020203;
+}
+.vitamine-block--content--text {
+  font-size: 0.875rem;
+  color: #74798c;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,13 +1,20 @@
 import MenuLeft from '../../components/MenuLeft/index'
-import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore} from '../../utils/ApiData/index'
+import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore, ApiVitamines} from '../../utils/ApiData/index'
 import { useParams } from 'react-router-dom'
 import SportseeBarChart from '../../components/SimpleBarChart/index'
 import SportseeLineChart from '../../components/SportseeLineChart/index'
 import SportseeRadarChart from '../../components/SportseeRadarChart/index'
 import SportseePieChart from '../../components/SportseePieChart/index'
+import Vitamines from '../../components/Vitamines/index'
+
+import vit_001 from '../../assets/images/calories.svg'
+import vit_002 from '../../assets/images/proteines.svg'
+import vit_003 from '../../assets/images/glucides.svg'
+import vit_004 from '../../assets/images/lipides.svg'
+
 
 import { Component } from 'react'
-import { ResponsiveContainer } from 'recharts';
+
 
 //I use a class wrapped in a functional component so that the hook useParams can be used.
 
@@ -26,7 +33,9 @@ class Home extends Component {
       currentSession: {},
       currentAverage: {},
       currentPerformance: {},
-      currentScore: {}
+      currentScore: {},
+
+      currentVitamines: {}
     }
   }
 
@@ -48,7 +57,16 @@ class Home extends Component {
 
         const currentScore = await ApiScore(userId)
         this.setState({currentScore})
+
+        //==================
+
+        const currentVitamines = await ApiVitamines(userId)
+        this.setState({currentVitamines})
+
+
+
         
+              
     }
 
     fetchData()
@@ -59,6 +77,33 @@ class Home extends Component {
     const helloMessage =  'Félicitation ! Vous avez explosé vos objectifs hier 👏'
     const Data = this.state
     console.log(Data)
+
+    let styledData = [
+      {
+        image: vit_001,
+        bgColor: '#FF0000',
+        unit: 'kCal',
+        text: 'Calories'
+      },
+      {
+        image: vit_002,
+        bgColor: '#4AB8FF',
+        unit: 'g',
+        text: 'Proteines'
+      },
+      {
+        image: vit_003,
+        bgColor: '#FDCC0C',
+        unit: 'g',
+        text: 'Glucides'
+      },
+      {
+        image: vit_004,
+        bgColor: '#FD5181',
+        unit: 'g',
+        text: 'Lipides'
+      }
+    ]
    
     return(
       <div className="container-fluid menu-left-container">
@@ -94,7 +139,34 @@ class Home extends Component {
                     </div>
 
                   </div>
-                  <div className='col-3'>222</div>
+                  <div className='col-3'>
+
+
+                   
+                      <Vitamines 
+                        Data={this.state.currentVitamines.calorieCount} 
+                        styledData={styledData[0]}>
+                      </Vitamines>
+
+                      <Vitamines 
+                        Data={this.state.currentVitamines.proteinCount} 
+                        styledData={styledData[1]}>
+                      </Vitamines>
+
+                      <Vitamines 
+                        Data={this.state.currentVitamines.carbohydrateCount} 
+                        styledData={styledData[2]}>
+                      </Vitamines>
+
+                      <Vitamines 
+                        Data={this.state.currentVitamines.lipidCount} 
+                        styledData={styledData[3]}>
+                      </Vitamines>
+                  
+              
+
+
+                  </div>
               </div>
           </div>
       </div>

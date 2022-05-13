@@ -24,13 +24,16 @@ function SportseePieChart({Data}){
                     de votre objectif
                 </span>
             </div>
+            <p className='score-graph--name'>Score</p>
             <ResponsiveContainer width='100%' height={250}>
+                
                 <PieChart 
                     width={250} 
                     height={250}
-                    fill="#ffffff"
+                 
 
                 >
+                    
                 
                     <Pie 
                         data={Data} 
@@ -38,7 +41,7 @@ function SportseePieChart({Data}){
                         nameKey="name" 
                         cx="50%" 
                         cy="50%" 
-                        innerRadius={80} 
+                        innerRadius={85} 
                         outerRadius={100} 
                         fill="#FF0000"
                         startAngle={450} 

@@ -14,10 +14,10 @@ function SportseeBarChart({Data}){
     const renderLineChart = (
         
         
-        <ResponsiveContainer width='100%' height={200}>
+        <ResponsiveContainer width='100%' height={320}>
             <BarChart 
                 width={730} 
-                height={250} 
+                height={320} 
                 data={Data}
                 barCategoryGap="37%"
                 barGap="5%"

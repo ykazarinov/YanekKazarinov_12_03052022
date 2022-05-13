@@ -81,4 +81,10 @@ async function ApiScore(userId){
     return score
 }
 
-export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore};
+async function ApiVitamines(userId){
+    const response = await fetch(`http://localhost:3000/user/${userId}`);
+    const data = await response.json();
+    return data.data.keyData
+}
+
+export {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore, ApiVitamines};

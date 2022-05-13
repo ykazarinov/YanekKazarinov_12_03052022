@@ -19,6 +19,7 @@ $grey-text: #74798c;
 $size_index: 0.0625;
 $font_size: (
     '24px': calc(24rem *  $size_index),
+    '20px': calc(20rem *  $size_index),
     '26px': calc(26rem *  $size_index),
     '36px': calc(36rem * $size_index),
     '48px': calc(48rem * $size_index),
@@ -185,6 +186,13 @@ header{
     justify-content: center;
     align-items: center;
     position: relative;
+    &--name{
+        position: absolute;
+        left: 1.5rem;
+        top: 1.5rem;
+        font-size: map-get($font_size, '14px');
+        color: $black;
+    }
 
 }
 
@@ -210,6 +218,40 @@ header{
         color: $grey-text;
         display: block;
         text-align: center;
+    }
+
+}
+
+.vitamine-block{
+    background-color: $light-grey;
+    border-radius: 5px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 39px;
+
+
+    &--image{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 24px;
+        border-radius: 6px;
+    }
+    &--content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        &--value{
+            font-size: map-get($font_size, '20px');
+            color: $black;
+        }
+        &--text{
+            font-size: map-get($font_size, '14px');
+            color: $grey-text;
+        }
     }
 }
 
