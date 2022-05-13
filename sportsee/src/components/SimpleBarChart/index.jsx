@@ -14,7 +14,7 @@ function SportseeBarChart({Data}){
     const renderLineChart = (
         
         
-         
+        <ResponsiveContainer width='100%' height={200}>
             <BarChart 
                 width={730} 
                 height={250} 
@@ -114,7 +114,7 @@ function SportseeBarChart({Data}){
                   
                 />
             </BarChart>
-           
+        </ResponsiveContainer>    
     
     );
 return(

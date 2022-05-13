@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // import './assets/css/style.css';
@@ -6,12 +7,7 @@ import Home from './pages/Home/index';
 import './assets/css/style.css';
 import Header from './components/Header/index'
 
-import { createRoot } from 'react-dom/client';
-
-const container = document.getElementById('root');
-const root = createRoot(container);
-
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Header />
@@ -21,5 +17,6 @@ root.render(
 
 
     </Router>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
