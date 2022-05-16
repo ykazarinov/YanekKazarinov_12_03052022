@@ -10,7 +10,6 @@ function SportseeLineChart({Data}){
         height={230}
         data={Data}
         margin={{ top: 10, right: 10, bottom: -30, left: 15 }}
-      
       >
 
       <XAxis 
@@ -46,7 +45,6 @@ function SportseeLineChart({Data}){
         }}
       />
 
-
       <Area 
         type="natural" 
         dataKey="pv" 
@@ -58,9 +56,7 @@ function SportseeLineChart({Data}){
         connectNulls={true}
         fillOpacity={1} 
         fill="rgba(255, 255, 255, .1)"
-        
-        
-        />
+      />
     
     </AreaChart>
     </ResponsiveContainer>
@@ -69,9 +65,7 @@ function SportseeLineChart({Data}){
   return(
     <section className='average-graph'>
         <p className='average-graph--name'>Durée moyenne des sessions</p>
-        
         {renderLineChart}
-      
     </section>
     
 )

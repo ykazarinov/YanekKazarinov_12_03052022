@@ -1,9 +1,6 @@
+import { RadialBarChart , RadialBar, ResponsiveContainer } from 'recharts';
 
-import { PieChart, Pie, ResponsiveContainer } from 'recharts';
-
-import { RadialBarChart , RadialBar} from 'recharts';
-
-function SportseePieChart({Data}){
+function SportseeRadialBarChart({Data}){
      
     let dataValues = Object.values(Data)
     let PercentValue = dataValues.map(x => x.value)
@@ -23,26 +20,6 @@ function SportseePieChart({Data}){
             </div>
             <p className='score-graph--name'>Score</p>
             <ResponsiveContainer width='100%' height={250}>
-                {/* <PieChart 
-                    width={250} 
-                    height={250}
-                >
-                    <Pie 
-                        data={Data} 
-                        dataKey="value" 
-                        nameKey="name" 
-                        cx="50%" 
-                        cy="50%" 
-                        innerRadius={85} 
-                        outerRadius={100} 
-                        fill="#FF0000"
-                        startAngle={450} 
-                        endAngle={90} 
-                    
-                    />
-                   
-                </PieChart> */}
-
                 <RadialBarChart 
                     width={250} 
                     height={250} 
@@ -68,4 +45,4 @@ function SportseePieChart({Data}){
     )
 }
 
-export default SportseePieChart
+export default SportseeRadialBarChart

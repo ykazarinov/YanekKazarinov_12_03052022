@@ -5,14 +5,12 @@ function SportseeRadarChart({Data}){
         <ResponsiveContainer width="100%" height={250}>
             <RadarChart outerRadius={90} width={230} height={230} data={Data}>
             <PolarGrid 
-            
             />
             <PolarAngleAxis 
                 dataKey="kindName"
                 tick={{fill:"#ffffff", fontSize:10}}
                 axisLine={true}
                 tickLine={true}
-                
             />
             
             <PolarRadiusAxis 
@@ -20,24 +18,19 @@ function SportseeRadarChart({Data}){
                 domain={[0, 150]}
                 axisLine={false}
                 tick={false}
-        
             />
 
             <Radar 
-            
                 dataKey="value" 
                 stroke="rgba(230, 0, 0, .7)" 
                 fill="#E60000"
-    
                 fillOpacity={0.6} 
             />
         
-
             </RadarChart>
         </ResponsiveContainer>
     )
     return(
-        
         <section className='performance-graph'>
             {renderRadarChart}
         </section>

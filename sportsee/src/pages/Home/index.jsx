@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types'
+
 import MenuLeft from '../../components/MenuLeft/index'
 import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore, ApiVitamines} from '../../utils/ApiData/index'
 import { useParams } from 'react-router-dom'
-import SportseeBarChart from '../../components/SimpleBarChart/index'
+import SportseeBarChart from '../../components/SportseeBarChart/index'
 import SportseeLineChart from '../../components/SportseeLineChart/index'
 import SportseeRadarChart from '../../components/SportseeRadarChart/index'
-import SportseePieChart from '../../components/SportseePieChart/index'
+import SportseeRadialBarChart from '../../components/SportseeRadialBarChart/index'
 import Vitamines from '../../components/Vitamines/index'
 
 import vit_001 from '../../assets/images/calories.svg'
@@ -12,17 +14,14 @@ import vit_002 from '../../assets/images/proteines.svg'
 import vit_003 from '../../assets/images/glucides.svg'
 import vit_004 from '../../assets/images/lipides.svg'
 
-
 import { Component } from 'react'
-
 
 //I use a class wrapped in a functional component so that the hook useParams can be used.
 
-function withParams(Component) {
+function WithParams(Component) {
   return props => <Component {...props} params={useParams({})} />;
 
 }
-
 
 class Home extends Component {
 
@@ -34,7 +33,6 @@ class Home extends Component {
       currentAverage: {},
       currentPerformance: {},
       currentScore: {},
-
       currentVitamines: {}
     }
   }
@@ -58,15 +56,9 @@ class Home extends Component {
         const currentScore = await ApiScore(userId)
         this.setState({currentScore})
 
-        //==================
-
         const currentVitamines = await ApiVitamines(userId)
         this.setState({currentVitamines})
 
-
-
-        
-              
     }
 
     fetchData()
@@ -122,10 +114,7 @@ class Home extends Component {
                       
                     <div className='row'>
                       <div className='col-12'>
-                        {/* <ResponsiveContainer width={"100%"} height={400}> */}
                           <SportseeBarChart  Data={this.state.currentSession} />
-                        {/* </ResponsiveContainer> */}
-                        
                       </div>
                       <div className='col-4'>
                         <SportseeLineChart  Data={this.state.currentAverage} />
@@ -134,15 +123,12 @@ class Home extends Component {
                         <SportseeRadarChart Data={this.state.currentPerformance}/>
                       </div>
                       <div className='col-4'>
-                        <SportseePieChart Data={this.state.currentScore}/>
+                        <SportseeRadialBarChart Data={this.state.currentScore}/>
                       </div>
                     </div>
 
                   </div>
                   <div className='col-3'>
-
-
-                   
                       <Vitamines 
                         Data={this.state.currentVitamines.calorieCount} 
                         styledData={styledData[0]}>
@@ -162,10 +148,6 @@ class Home extends Component {
                         Data={this.state.currentVitamines.lipidCount} 
                         styledData={styledData[3]}>
                       </Vitamines>
-                  
-              
-
-
                   </div>
               </div>
           </div>
@@ -174,9 +156,21 @@ class Home extends Component {
   </div>
       )
 
-
-    
 }
 }
 
-export default  withParams(Home);
+Home.propTypes = {
+  currentUserName: PropTypes.string,
+  currentSession: PropTypes.object,
+  currentAverage: PropTypes.object,
+  currentPerformance: PropTypes.object,
+  currentScore: PropTypes.object,
+  currentVitamines: PropTypes.object
+
+}
+
+// WithParams.propTypes = {
+//   Component: PropTypes.elementType
+// }
+
+export default  WithParams(Home);

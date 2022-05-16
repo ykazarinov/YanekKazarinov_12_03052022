@@ -1,20 +1,14 @@
 
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
-// import React from 'react'
-
-
 
 function SportseeBarChart({Data}){
-    // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page B', uv: 500, pv: 1400, amt: 1400}];
-    
+ 
     const renderColorfulLegendText = (value) => {
         return <span style={{ color:"#74798C", marginLeft:".7rem", marginRight:"2rem" }}>{value}</span>;
     }
 
     const renderLineChart = (
-        
-        
-        <ResponsiveContainer width='100%' height={320}>
+         <ResponsiveContainer width='100%' height={320}>
             <BarChart 
                 width={730} 
                 height={320} 
@@ -38,7 +32,6 @@ function SportseeBarChart({Data}){
                     yAxisId="kg"
                     orientation='right' 
                     dataKey={'pv'}  
-                    // type="number" 
                     domain={['dataMin-1', 'dataMax+1']} 
                     tickLine={false}
                     tickSize={15}
@@ -49,7 +42,6 @@ function SportseeBarChart({Data}){
                     yAxisId="kcal"
                     orientation='right' 
                     dataKey={'pv'}  
-                    // type="number" 
                     domain={[100, 500]} 
                     tickLine={false}
                     tickSize={15}
@@ -90,8 +82,6 @@ function SportseeBarChart({Data}){
                     wrapperStyle={{top:"-2rem", fontSize:".9rem"}}
                     chartWidth={50}
                     formatter={renderColorfulLegendText}
-                    
-                    
                     />
                 <Bar 
                     yAxisId="kg"
@@ -119,17 +109,9 @@ function SportseeBarChart({Data}){
     );
 return(
     <section className='activity-graph'>
-         <p className='activity-graph--name'>Activité quotidienne</p> 
-        
-       
-             {renderLineChart}
-       
-       
-           
-      
-      
+        <p className='activity-graph--name'>Activité quotidienne</p> 
+        {renderLineChart}
     </section> 
-    
-)
+    )
 }
 export default SportseeBarChart;

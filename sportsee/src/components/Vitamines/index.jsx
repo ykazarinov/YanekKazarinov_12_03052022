@@ -13,8 +13,6 @@ function hexToRgb(hex) {
         background-color: rgba(${({bgR}) => bgR}, ${({bgG}) => bgG}, ${({bgB}) => bgB}, .3);
     `
 
-
-
     function Vitamines({Data, styledData}){
     return(
         <div className="vitamine-block">
