@@ -61,16 +61,16 @@ async function ApiPerformance(userId){
 async function ApiScore(userId){
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
-   
+   console.log('data.data.todayScore: ', data.data.todayScore)
     const score = [
         {
             "name": "25-29",
             "value": 0.5,
-            "fill": "#ffffff"
+            "fill": "transparent"
         },
           {
             "name": "Group A",
-            "value": data.data.todayScore,
+            "value": data.data.score ? data.data.score : data.data.todayScore,
             "fill": "#FF0000"
         }
 

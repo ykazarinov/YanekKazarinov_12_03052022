@@ -1,15 +1,12 @@
 
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
+import { RadialBarChart , RadialBar} from 'recharts';
+
 function SportseePieChart({Data}){
      
     let dataValues = Object.values(Data)
     let PercentValue = dataValues.map(x => x.value)
-     
-
-    
-   
-
     let PercentString = (PercentValue[1] * 100) + '%'
     
     return (
@@ -26,15 +23,10 @@ function SportseePieChart({Data}){
             </div>
             <p className='score-graph--name'>Score</p>
             <ResponsiveContainer width='100%' height={250}>
-                
-                <PieChart 
+                {/* <PieChart 
                     width={250} 
                     height={250}
-                 
-
                 >
-                    
-                
                     <Pie 
                         data={Data} 
                         dataKey="value" 
@@ -48,14 +40,32 @@ function SportseePieChart({Data}){
                         endAngle={90} 
                     
                     />
-                    {/* <Pie data={Data02} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label /> */}
-                </PieChart>
+                   
+                </PieChart> */}
+
+                <RadialBarChart 
+                    width={250} 
+                    height={250} 
+                    innerRadius={75} 
+                    outerRadius={100} 
+                    data={Data} 
+                    startAngle={90} 
+                    endAngle={450}
+                    barCategoryGap={0}
+                >
+                    <RadialBar 
+                        minAngle={35} 
+                        label={false} 
+                        clockWise={true} 
+                        dataKey='value'
+                        background={false}
+                        
+                    />
+    
+                </RadialBarChart>
             </ResponsiveContainer>
         </section>
     )
-  
- 
-  
 }
 
 export default SportseePieChart
