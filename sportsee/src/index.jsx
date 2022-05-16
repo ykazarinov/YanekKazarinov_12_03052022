@@ -11,7 +11,7 @@ ReactDOM.render(
     <Router>
       <Header />
         <Routes>
-          <Route path="/:id"  element={<Home />} />
+          <Route exact path="/:userId"  element={<Home />} />
         </Routes>
     </Router>
   </React.StrictMode>,

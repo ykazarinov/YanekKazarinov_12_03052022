@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 function hexToRgb(hex) {
@@ -32,4 +33,9 @@ function hexToRgb(hex) {
         </div>
     )
 }
+Vitamines.propTypes = {
+    Data: PropTypes.number,
+    styledData: PropTypes.object
+  }
+
 export default Vitamines

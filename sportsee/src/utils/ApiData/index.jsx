@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 async function ApiUserName(userId){
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
@@ -62,12 +60,12 @@ async function ApiPerformance(userId){
 }
 
 async function ApiScore(userId){
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
+    const response = await fetch(`http://localhost:3000/user/${userId}`)
     const data = await response.json();
-    const score = [
+    const score = await [
         {
             "name": "25-29",
-            "value": 0.5,
+            "value": 1,
             "fill": "transparent"
         },
           {
@@ -77,32 +75,19 @@ async function ApiScore(userId){
         }
     ]
 
-    return score
+        let dataValues = Object.values(score)
+        let PercentValue = dataValues.map(x => x.value)
+        let PercentString = (PercentValue[1] * 100) + '%'
+
+    return [score, PercentString]
 }
+
+
 
 async function ApiVitamines(userId){
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
     return data.data.keyData
-}
-
-ApiUserName.propTypes = {
-    userId: PropTypes.string.isRequired
-}
-ApiActivity.propTypes = {
-    userId: PropTypes.string.isRequired
-}
-ApiAverage.propTypes = {
-    userId: PropTypes.string.isRequired
-}
-ApiPerformance.propTypes = {
-    userId: PropTypes.string.isRequired
-}
-ApiScore.propTypes = {
-    userId: PropTypes.string.isRequired
-}
-ApiVitamines.propTypes = {
-    userId: PropTypes.string.isRequired
 }
 
 

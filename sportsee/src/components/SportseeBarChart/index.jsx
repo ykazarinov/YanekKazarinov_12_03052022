@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types'
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 
 function SportseeBarChart({Data}){
@@ -113,5 +113,9 @@ return(
         {renderLineChart}
     </section> 
     )
+}
+
+SportseeBarChart.propTypes = {
+    Data: PropTypes.array
 }
 export default SportseeBarChart;

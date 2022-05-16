@@ -1,22 +1,19 @@
+import PropTypes from 'prop-types'
 import { RadialBarChart , RadialBar, ResponsiveContainer } from 'recharts';
 
-function SportseeRadialBarChart({Data}){
-     
-    let dataValues = Object.values(Data)
-    let PercentValue = dataValues.map(x => x.value)
-    let PercentString = (PercentValue[1] * 100) + '%'
-    
+function SportseeRadialBarChart(props){
+
     return (
 
         <section className='score-graph'>
 
             <div className='score_label'>
-                <span className='score_label--prc'>
-                    {PercentString}
-                </span>
-                <span className='score_label--text'>
+                <div className='score_label--prc'>
+                    {props.PercentString}
+                </div>
+                <div className='score_label--text'>
                     de votre objectif
-                </span>
+                </div>
             </div>
             <p className='score-graph--name'>Score</p>
             <ResponsiveContainer width='100%' height={250}>
@@ -25,7 +22,7 @@ function SportseeRadialBarChart({Data}){
                     height={250} 
                     innerRadius={75} 
                     outerRadius={100} 
-                    data={Data} 
+                    data={props.Data} 
                     startAngle={90} 
                     endAngle={450}
                     barCategoryGap={0}
@@ -40,9 +37,15 @@ function SportseeRadialBarChart({Data}){
                     />
     
                 </RadialBarChart>
+
             </ResponsiveContainer>
         </section>
     )
+}
+
+SportseeRadialBarChart.propTypes = {
+    Data: PropTypes.array,
+    PercentString: PropTypes.string
 }
 
 export default SportseeRadialBarChart

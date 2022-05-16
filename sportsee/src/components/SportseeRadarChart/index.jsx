@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer} from 'recharts';
 
 function SportseeRadarChart({Data}){
@@ -37,4 +38,7 @@ function SportseeRadarChart({Data}){
     
     )
 }
+SportseeRadarChart.propTypes = {
+    Data: PropTypes.array
+  }
  export default SportseeRadarChart

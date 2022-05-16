@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types'
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
-// import React from 'react';
 
 function SportseeLineChart({Data}){
 
@@ -69,5 +69,9 @@ function SportseeLineChart({Data}){
     </section>
     
 )
+}
+
+SportseeLineChart.propTypes = {
+  Data: PropTypes.array
 }
 export default SportseeLineChart
