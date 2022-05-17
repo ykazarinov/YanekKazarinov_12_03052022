@@ -1,11 +1,36 @@
 import PropTypes from 'prop-types'
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 
+/**
+* Represents a daily activity chart.
+* @description Displays daily activity in the form of a bar graph that shows information
+* about weight and calories burned. 
+* The x-axis corresponds to the days of the current month. 
+* On hover, a tooltip appears.
+* @param {Object[]} Data - Information about weight and calories burned.
+* @external Recharts library.
+* @see {@link https://recharts.org/en-US/api/BarChart}
+* @returns A daily activity chart React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
+
 function SportseeBarChart({Data}){
+
+    /**
+     * Element of Legend for chart
+     * @kind function
+     * @param {object} value - Information for the legend.
+     * @memberof renderLineChart
+     */
  
     const renderColorfulLegendText = (value) => {
         return <span style={{ color:"#74798C", marginLeft:".7rem", marginRight:"2rem" }}>{value}</span>;
     }
+
+    /**
+     * React element for chart
+     * @kind constant
+     */
 
     const renderLineChart = (
          <ResponsiveContainer width='100%' height={320}>

@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
 import Logo from '../../assets/images/logo.svg'
 
-function Header(){
+/**
+* Represents a Header.
+* @returns Header React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 
+function Header(){
+    /**
+    * Elements of horisontal top menu.
+    * @readonly
+    * @property {string}  title - The title of the menu item.
+    * @property {string}  link  - The link of the menu item.
+    */
     const menu = [
         {
             title: 'Accueil',

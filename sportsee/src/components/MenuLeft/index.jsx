@@ -1,9 +1,18 @@
+/**
+ * @file Icons of left menu items.
+ */
 import icon_001 from '../../assets/images/icon_001.svg'
 import icon_002 from '../../assets/images/icon_002.svg'
 import icon_003 from '../../assets/images/icon_003.svg'
 import icon_004 from '../../assets/images/icon_004.svg'
 
 import { Link } from 'react-router-dom'
+
+/**
+* Represents a Left part of the page (menu & copyright text with current year).
+* @returns Left menu & copyright text.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 
 function MenuLeft(){
     let now = new Date();
