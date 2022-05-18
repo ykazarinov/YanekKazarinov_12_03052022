@@ -2420,7 +2420,7 @@ textarea.form-control-lg {
   background-size: contain;
   border: 1px solid rgba(0, 0, 0, 0.25);
   appearance: none;
-  print-color-adjust: exact;
+  color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -11301,7 +11301,7 @@ header .menu-top ul li a {
 .vitamine-block {
   background-color: #FBFBFB;
   border-radius: 5px;
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   margin-bottom: 39px;
@@ -11312,21 +11312,29 @@ header .menu-top ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 24px;
+  margin-right: 1rem;
   border-radius: 6px;
 }
 .vitamine-block--content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .vitamine-block--content--value {
-  font-size: 1.25rem;
   color: #020203;
 }
 .vitamine-block--content--text {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #74798c;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-content {
+    padding-right: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -127,7 +127,7 @@ function Home() {
     return(
       <div className="container-fluid menu-left-container">
             
-      <div className='row'>
+      <div className='row responsiveRow'>
           <MenuLeft></MenuLeft>
           <div className='col-10 main-content'>
               <div className='row'>

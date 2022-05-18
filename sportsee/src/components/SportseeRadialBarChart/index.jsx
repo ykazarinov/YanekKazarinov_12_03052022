@@ -29,8 +29,8 @@ function SportseeRadialBarChart(props){
                 <RadialBarChart 
                     width={250} 
                     height={250} 
-                    innerRadius={75} 
-                    outerRadius={100} 
+                    innerRadius="65%" 
+                    outerRadius="90%" 
                     data={props.Data} 
                     startAngle={90} 
                     endAngle={450}

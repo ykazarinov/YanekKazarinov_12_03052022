@@ -18,6 +18,7 @@ function SportseeRadarChart({Data}){
         <ResponsiveContainer width="100%" height={250}>
             <RadarChart outerRadius={90} width={230} height={230} data={Data}>
             <PolarGrid 
+             radialLines={false}
             />
             <PolarAngleAxis 
                 dataKey="kindName"
