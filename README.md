@@ -1,5 +1,3 @@
-[# YanekKazarinov_12_03052022
-SportSee](https://img.shields.io/github/last-commit/ykazarinov/YanekKazarinov_12_03052022
 # SportSee
 
 SportSee is a startup based on sports coaching. To improve the user experience, we have created a new version of the profile page, where you can track the number of completed sessions, as well as the number of calories burned.
