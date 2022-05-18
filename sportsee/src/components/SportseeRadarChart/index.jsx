@@ -1,7 +1,19 @@
 import PropTypes from 'prop-types'
 import {RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer} from 'recharts';
-
+/**
+* Activity Type radar chart.
+* @description Displays a radar chart of the Activity Type. 
+* @param {Object[]} Data - Information about Activity Type.
+* @external Recharts library.
+* @see {@link https://recharts.org/en-US/api/RadarChart}
+* @returns Activity Type chart React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 function SportseeRadarChart({Data}){
+    /**
+   * React element for chart
+   * @kind constant
+   */
     const renderRadarChart = (
         <ResponsiveContainer width="100%" height={250}>
             <RadarChart outerRadius={90} width={230} height={230} data={Data}>

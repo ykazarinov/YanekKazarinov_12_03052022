@@ -56,7 +56,7 @@ function SportseeBarChart({Data}){
                 <YAxis 
                     yAxisId="kg"
                     orientation='right' 
-                    dataKey={'pv'}  
+                    dataKey={'kilogram'}  
                     domain={['dataMin-1', 'dataMax+1']} 
                     tickLine={false}
                     tickSize={15}
@@ -66,7 +66,7 @@ function SportseeBarChart({Data}){
                 <YAxis 
                     yAxisId="kcal"
                     orientation='right' 
-                    dataKey={'pv'}  
+                    dataKey={'kilogram'}  
                     domain={[100, 500]} 
                     tickLine={false}
                     tickSize={15}
@@ -111,7 +111,7 @@ function SportseeBarChart({Data}){
                 <Bar 
                     yAxisId="kg"
                     name="Poids (kg)" 
-                    dataKey="pv" 
+                    dataKey="kilogram" 
                     fill="#282D30" 
                     minPointSize={3} 
                     unit="kg" 
@@ -121,7 +121,7 @@ function SportseeBarChart({Data}){
                 <Bar 
                     yAxisId="kcal"
                     name="Calories brûlées (kCal)" 
-                    dataKey="uv" 
+                    dataKey="calories" 
                     fill="#E60000" 
                     unit="Kcal" 
                     maxBarSize={8}

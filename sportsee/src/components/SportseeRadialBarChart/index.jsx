@@ -1,6 +1,15 @@
 import PropTypes from 'prop-types'
 import { RadialBarChart , RadialBar, ResponsiveContainer } from 'recharts';
-
+/**
+* Average score as a Radial Bar Chart.
+* @description Displays a radial bar chart of the Avarage score. 
+* @param {Object[]} Data - Information about Avarage score.
+* @param {String} PercentString - Average score percentage.
+* @external Recharts library.
+* @see {@link https://recharts.org/en-US/api/RadialBarChart}
+* @returns Average score chart React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 function SportseeRadialBarChart(props){
 
     return (

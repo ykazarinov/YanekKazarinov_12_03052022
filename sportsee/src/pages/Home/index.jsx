@@ -9,6 +9,9 @@ import SportseeRadarChart from '../../components/SportseeRadarChart/index'
 import SportseeRadialBarChart from '../../components/SportseeRadialBarChart/index'
 import Vitamines from '../../components/Vitamines/index'
 
+/**
+ * @file Icons of key digit blocks.
+ */
 import vit_001 from '../../assets/images/calories.svg'
 import vit_002 from '../../assets/images/proteines.svg'
 import vit_003 from '../../assets/images/glucides.svg'
@@ -16,13 +19,34 @@ import vit_004 from '../../assets/images/lipides.svg'
 
 import { useState, useEffect } from 'react'
 
-//I use a class wrapped in a functional component so that the hook useParams can be used.
-
+/**
+* Home page.
+* @description Displays the main page with all blocks (Header, Left menu, Charts).
+* @returns Home page React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 function Home() {
 
+  /**
+   * @constant helloMessage
+   * Welcome text
+   */
   const helloMessage =  'Félicitation ! Vous avez explosé vos objectifs hier 👏'
+  
+  /**
+   * @kind member
+   * User Id, derived from URL
+   */
   let { userId } = useParams({})
 
+  /**
+  * Additional information for Key digit blocks
+  * @readonly
+  * @property {string}  image     - Icon path.
+  * @property {string}  bgColor   - Background color for key digit block in HEX color format.
+  * @property {string} unit       - Unit of key digit.
+  * @property {string} text       - Explanatory text for key digit block.
+  */
   let styledData = [
     {
       image: vit_001,
@@ -50,6 +74,9 @@ function Home() {
     }
   ]
 
+  /**
+  * State hooks containing relevant data from the API.
+  */
   const [userName, setUserName] = useState(null)
   const [session, setSession] = useState(null)
   const [average, setAverage] = useState(null)
@@ -61,7 +88,15 @@ function Home() {
   const [carbohydrate, setCarbohydrate] = useState(null)
   const [lipid, setLipid] = useState(null)
 
+
   useEffect(() => {
+  /**
+   * @async
+   * @function fetchData
+   * @description Executes a series of asynchronous component functions (to receive data)
+   * and passes the data to the appropriate state hooks.
+   * 
+   */
     const fetchData = async () => {
         const currentUserName = await ApiUserName(userId)
         setUserName(currentUserName)
@@ -84,17 +119,11 @@ function Home() {
         setProtein(currentVitamines.proteinCount)
         setCarbohydrate(currentVitamines.carbohydrateCount)
         setLipid(currentVitamines.lipidCount)
-
-
     }
-    
  
     fetchData()
   }, [userId])
 
-
-
-   
     return(
       <div className="container-fluid menu-left-container">
             

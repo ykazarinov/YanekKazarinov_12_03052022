@@ -1,8 +1,22 @@
 import PropTypes from 'prop-types'
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
-
+/**
+* Average session duration chart.
+* @description Displays a chart of the average session duration. 
+* The abscissa shows the average duration of sessions. 
+* On hover, a tooltip appears.
+* @param {Object[]} Data - Information about the average duration of sessions.
+* @external Recharts library.
+* @see {@link https://recharts.org/en-US/api/LineChart}
+* @returns Average session duration chart React Element.
+* @author Kazarinov Yanek aka Artfish <artfish.pro>
+*/
 function SportseeLineChart({Data}){
 
+    /**
+   * React element for chart
+   * @kind constant
+   */
   const renderLineChart = (
     <ResponsiveContainer width='100%' height={250}>
       <AreaChart
@@ -47,7 +61,7 @@ function SportseeLineChart({Data}){
 
       <Area 
         type="natural" 
-        dataKey="pv" 
+        dataKey="sessionLength" 
         stroke="#ffffff" 
         activeDot={{ stroke: 'rgba(255, 255, 255, .5)', strokeWidth: 10, r: 3 }}
         dot={false}
