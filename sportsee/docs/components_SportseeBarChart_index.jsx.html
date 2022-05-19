@@ -1,4 +1,32 @@
-import PropTypes from 'prop-types'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/SportseeBarChart/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/SportseeBarChart/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
 import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 
 /**
@@ -11,7 +39,7 @@ import {ResponsiveContainer, BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Leg
 * @external Recharts library.
 * @see {@link https://recharts.org/en-US/api/BarChart}
 * @returns A daily activity chart React Element.
-* @author Kazarinov Yanek aka Artfish <artfish.pro>
+* @author Kazarinov Yanek aka Artfish &lt;artfish.pro>
 */
 function SportseeBarChart({Data}){
 
@@ -22,7 +50,7 @@ function SportseeBarChart({Data}){
      * @memberof renderLineChart
      */
      const renderColorfulLegendText = (value) => {
-        return <span style={{ color:"#74798C", marginLeft:".7rem", marginRight:"2rem" }}>{value}</span>;
+        return &lt;span style={{ color:"#74798C", marginLeft:".7rem", marginRight:"2rem" }}>{value}&lt;/span>;
     }
 
     /**
@@ -30,8 +58,8 @@ function SportseeBarChart({Data}){
      * @kind constant
      */
     const renderLineChart = (
-         <ResponsiveContainer width='100%' height={320}>
-            <BarChart 
+         &lt;ResponsiveContainer width='100%' height={320}>
+            &lt;BarChart 
                 width={730} 
                 height={320} 
                 data={Data}
@@ -39,18 +67,18 @@ function SportseeBarChart({Data}){
                 barGap="5%"
                 margin={{ top: 5, right: 5, bottom: 5, left: 5 }}
             >
-                <CartesianGrid 
+                &lt;CartesianGrid 
                     strokeDasharray="1 3" 
                     vertical={false}
                     
                 />
-                <XAxis 
+                &lt;XAxis 
                     dataKey="name"
                     tickLine={false}
                     tickSize={15}
                 
                 />
-                <YAxis 
+                &lt;YAxis 
                     yAxisId="kg"
                     orientation='right' 
                     dataKey={'kilogram'}  
@@ -60,7 +88,7 @@ function SportseeBarChart({Data}){
                     tick={{stroke: '#9B9EAC', strokeWidth: 0}}
                     
                 />
-                <YAxis 
+                &lt;YAxis 
                     yAxisId="kcal"
                     orientation='right' 
                     dataKey={'kilogram'}  
@@ -71,7 +99,7 @@ function SportseeBarChart({Data}){
                     tick={{stroke: '#9B9EAC', strokeWidth: 0}}
                     
                 />
-                <Tooltip 
+                &lt;Tooltip 
                     filterNull={false}
                     separator=""
                     itemStyle={{
@@ -95,7 +123,7 @@ function SportseeBarChart({Data}){
                         display: "none"
                     }}
                     />
-                <Legend 
+                &lt;Legend 
                     align="right" 
                     verticalAlign="top" 
                     iconType="circle"
@@ -105,7 +133,7 @@ function SportseeBarChart({Data}){
                     chartWidth={50}
                     formatter={renderColorfulLegendText}
                     />
-                <Bar 
+                &lt;Bar 
                     yAxisId="kg"
                     name="Poids (kg)" 
                     dataKey="kilogram" 
@@ -115,7 +143,7 @@ function SportseeBarChart({Data}){
                     maxBarSize={8}
                     isAnimationActive={true}
                 />
-                <Bar 
+                &lt;Bar 
                     yAxisId="kcal"
                     name="Calories brûlées (kCal)" 
                     dataKey="calories" 
@@ -125,19 +153,41 @@ function SportseeBarChart({Data}){
                     isAnimationActive={true}
                   
                 />
-            </BarChart>
-        </ResponsiveContainer>    
+            &lt;/BarChart>
+        &lt;/ResponsiveContainer>    
     
     );
 return(
-    <section className='activity-graph'>
-        <p className='activity-graph--name'>Activité quotidienne</p> 
+    &lt;section className='activity-graph'>
+        &lt;p className='activity-graph--name'>Activité quotidienne&lt;/p> 
         {renderLineChart}
-    </section> 
+    &lt;/section> 
     )
 }
 
 SportseeBarChart.propTypes = {
     Data: PropTypes.array
 }
-export default SportseeBarChart;
+export default SportseeBarChart;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-Recharts%252525252520library..html">Recharts library.</a></li><li><a href="external-styled-components.html">styled-components</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Addnewproperty%2522kindName%2522(withtypes)todataobject">Add new property "kindName" (with types) to data object</a></li><li><a href="global.html#Addnewproperty%2522name%2522(withdays)todataobject">Add new property "name" (with days) to data object</a></li><li><a href="global.html#Addnewproperty%2522name%2522(withindex)todataobject">Add new property "name" (with index) to data object</a></li><li><a href="global.html#ApiActivity">ApiActivity</a></li><li><a href="global.html#ApiAverage">ApiAverage</a></li><li><a href="global.html#ApiPerformance">ApiPerformance</a></li><li><a href="global.html#ApiScore">ApiScore</a></li><li><a href="global.html#ApiUserName">ApiUserName</a></li><li><a href="global.html#ApiVitamines">ApiVitamines</a></li><li><a href="global.html#days">days</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#helloMessage">helloMessage</a></li><li><a href="global.html#hexToRgb">hexToRgb</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#MenuLeft">MenuLeft</a></li><li><a href="global.html#score">score</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu May 19 2022 12:30:51 GMT+0200 (Центральная Европа, летнее время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

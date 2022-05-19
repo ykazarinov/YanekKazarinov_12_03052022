@@ -13,7 +13,6 @@ import { Link } from 'react-router-dom'
 * @returns Left menu & copyright text.
 * @author Kazarinov Yanek aka Artfish <artfish.pro>
 */
-
 function MenuLeft(){
     let now = new Date();
     const copyrightText = `Copiryght, SportSee ${now.getFullYear()}`

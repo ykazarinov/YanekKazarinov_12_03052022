@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { RadialBarChart , RadialBar, ResponsiveContainer } from 'recharts';
+
 /**
 * Average score as a Radial Bar Chart.
 * @description Displays a radial bar chart of the Avarage score. 

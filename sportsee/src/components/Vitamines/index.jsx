@@ -8,7 +8,6 @@ import styled from 'styled-components'
 * @returns An object with three values: R, G, B.
 * @author Tim Down <https://stackoverflow.com/users/96100/tim-down>
 */
-
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
@@ -31,16 +30,16 @@ function hexToRgb(hex) {
 const ImageContainer = styled.div`
     background-color: rgba(${({bgR}) => bgR}, ${({bgG}) => bgG}, ${({bgB}) => bgB}, .3);
 `
-/**
-* Key digit block.
-* @description Displays a key figure block with information about calories, proteins, 
-* carbohydrates and fats for the day. 
-* @param {number} Data - The amount of useful elements consumed..
-* @param {Object} styledData - Additional block data (unit, icon, explanatory text, block color).
-* @external Recharts library.
-* @returns Key digit React Element.
-* @author Kazarinov Yanek aka Artfish <artfish.pro>
-*/
+    /**
+    * Key digit block.
+    * @description Displays a key figure block with information about calories, proteins, 
+    * carbohydrates and fats for the day. 
+    * @param {number} Data - The amount of useful elements consumed..
+    * @param {Object} styledData - Additional block data (unit, icon, explanatory text, block color).
+    * @external Recharts library.
+    * @returns Key digit React Element.
+    * @author Kazarinov Yanek aka Artfish <artfish.pro>
+    */
     function Vitamines({Data, styledData}){
     return(
         <div className="vitamine-block">

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+
 /**
 * Average session duration chart.
 * @description Displays a chart of the average session duration. 

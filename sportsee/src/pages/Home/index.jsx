@@ -83,10 +83,13 @@ function Home() {
   const [performance, setPerformance] = useState(null)
   const [score, setScore] = useState(null)
   const [score2, setScore2] = useState(null)
+
   const [calories, setCalories] = useState(null)
   const [protein, setProtein] = useState(null)
   const [carbohydrate, setCarbohydrate] = useState(null)
   const [lipid, setLipid] = useState(null)
+
+  let myVitamins = [calories, protein, carbohydrate, lipid]
 
 
   useEffect(() => {
@@ -156,25 +159,13 @@ function Home() {
 
                   </div>
                   <div className='col-3'>
-                      <Vitamines 
-                        Data={calories} 
-                        styledData={styledData[0]}>
-                      </Vitamines>
-
-                      <Vitamines 
-                        Data={protein} 
-                        styledData={styledData[1]}>
-                      </Vitamines>
-
-                      <Vitamines 
-                        Data={carbohydrate} 
-                        styledData={styledData[2]}>
-                      </Vitamines>
-
-                      <Vitamines 
-                        Data={lipid} 
-                        styledData={styledData[3]}>
-                      </Vitamines>
+                    {myVitamins.map((vit, index) => (
+                       <Vitamines 
+                       Data={vit} 
+                       styledData={styledData[index]}>
+                     </Vitamines>
+                    ))}
+                     
                   </div>
               </div>
           </div>

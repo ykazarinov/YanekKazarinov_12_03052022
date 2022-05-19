@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Home/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Home/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+
+import MenuLeft from '../../components/MenuLeft/index'
+import {ApiUserName, ApiActivity, ApiAverage, ApiPerformance, ApiScore, ApiVitamines} from '../../utils/ApiData/index'
+import { useParams} from 'react-router-dom'
+import SportseeBarChart from '../../components/SportseeBarChart/index'
+import SportseeLineChart from '../../components/SportseeLineChart/index'
+import SportseeRadarChart from '../../components/SportseeRadarChart/index'
+import SportseeRadialBarChart from '../../components/SportseeRadialBarChart/index'
+import Vitamines from '../../components/Vitamines/index'
+
+/**
+ * @file Icons of key digit blocks.
+ */
+import vit_001 from '../../assets/images/calories.svg'
+import vit_002 from '../../assets/images/proteines.svg'
+import vit_003 from '../../assets/images/glucides.svg'
+import vit_004 from '../../assets/images/lipides.svg'
+
+import { useState, useEffect } from 'react'
+
+/**
+* Home page.
+* @description Displays the main page with all blocks (Header, Left menu, Charts).
+* @returns Home page React Element.
+* @author Kazarinov Yanek aka Artfish &lt;artfish.pro>
+*/
+function Home() {
+
+  /**
+   * @constant helloMessage
+   * Welcome text
+   */
+  const helloMessage =  'Félicitation ! Vous avez explosé vos objectifs hier 👏'
+  
+  /**
+   * @kind member
+   * User Id, derived from URL
+   */
+  let { userId } = useParams({})
+
+  /**
+  * Additional information for Key digit blocks
+  * @readonly
+  * @property {string}  image     - Icon path.
+  * @property {string}  bgColor   - Background color for key digit block in HEX color format.
+  * @property {string} unit       - Unit of key digit.
+  * @property {string} text       - Explanatory text for key digit block.
+  */
+  let styledData = [
+    {
+      image: vit_001,
+      bgColor: '#FF0000',
+      unit: 'kCal',
+      text: 'Calories'
+    },
+    {
+      image: vit_002,
+      bgColor: '#4AB8FF',
+      unit: 'g',
+      text: 'Proteines'
+    },
+    {
+      image: vit_003,
+      bgColor: '#FDCC0C',
+      unit: 'g',
+      text: 'Glucides'
+    },
+    {
+      image: vit_004,
+      bgColor: '#FD5181',
+      unit: 'g',
+      text: 'Lipides'
+    }
+  ]
+
+  /**
+  * State hooks containing relevant data from the API.
+  */
+  const [userName, setUserName] = useState(null)
+  const [session, setSession] = useState(null)
+  const [average, setAverage] = useState(null)
+  const [performance, setPerformance] = useState(null)
+  const [score, setScore] = useState(null)
+  const [score2, setScore2] = useState(null)
+
+  const [calories, setCalories] = useState(null)
+  const [protein, setProtein] = useState(null)
+  const [carbohydrate, setCarbohydrate] = useState(null)
+  const [lipid, setLipid] = useState(null)
+
+  let myVitamins = [calories, protein, carbohydrate, lipid]
+
+
+  useEffect(() => {
+  /**
+   * @async
+   * @function fetchData
+   * @description Executes a series of asynchronous component functions (to receive data)
+   * and passes the data to the appropriate state hooks.
+   * 
+   */
+    const fetchData = async () => {
+        const currentUserName = await ApiUserName(userId)
+        setUserName(currentUserName)
+
+        const currentSession = await ApiActivity(userId)
+        setSession(currentSession)
+
+        const currentAverage = await ApiAverage(userId)
+        setAverage(currentAverage)
+
+        const currentPerformance = await ApiPerformance(userId)
+        setPerformance(currentPerformance)
+
+        const currentScore = await ApiScore(userId)
+        setScore(currentScore[0])
+        setScore2(currentScore[1])
+
+        const currentVitamines = await ApiVitamines(userId)
+        setCalories(currentVitamines.calorieCount)
+        setProtein(currentVitamines.proteinCount)
+        setCarbohydrate(currentVitamines.carbohydrateCount)
+        setLipid(currentVitamines.lipidCount)
+    }
+ 
+    fetchData()
+  }, [userId])
+
+    return(
+      &lt;div className="container-fluid menu-left-container">
+            
+      &lt;div className='row responsiveRow'>
+          &lt;MenuLeft>&lt;/MenuLeft>
+          &lt;div className='col-10 main-content'>
+              &lt;div className='row'>
+                  &lt;div className='col-12'>
+                      &lt;h1>Bonjour &lt;span className='red'>{userName}&lt;/span>&lt;/h1>
+                      &lt;p className='hello_message'>{helloMessage}&lt;/p>
+                  &lt;/div>
+              &lt;/div>
+              &lt;div className='row'>
+                  &lt;div className='col-9'>
+                      
+                    &lt;div className='row'>
+                      &lt;div className='col-12'>
+                          &lt;SportseeBarChart  Data={session} />
+                      &lt;/div>
+                      &lt;div className='col-4'>
+                        &lt;SportseeLineChart  Data={average} />
+                      &lt;/div>
+                      &lt;div className='col-4'>
+                        &lt;SportseeRadarChart Data={performance}/>
+                      &lt;/div>
+                      &lt;div className='col-4'>
+                        &lt;SportseeRadialBarChart Data={score} PercentString={score2}/>
+                      &lt;/div>
+                    &lt;/div>
+
+                  &lt;/div>
+                  &lt;div className='col-3'>
+                    {myVitamins.map((vit, index) => {
+                       &lt;Vitamines 
+                       Data={vit} 
+                       styledData={styledData[index]}>
+                     &lt;/Vitamines>
+                    })}
+                     
+                  &lt;/div>
+              &lt;/div>
+          &lt;/div>
+      &lt;/div>
+     
+  &lt;/div>
+      )
+
+
+}
+
+Home.propTypes = {
+  currentUserName: PropTypes.string,
+  currentSession: PropTypes.object,
+  currentAverage: PropTypes.object,
+  currentPerformance: PropTypes.object,
+  currentScore: PropTypes.object,
+  currentVitamines: PropTypes.object
+
+}
+
+export default Home</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Externals</h3><ul><li><a href="external-Recharts%252525252520library..html">Recharts library.</a></li><li><a href="external-styled-components.html">styled-components</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Addnewproperty%2522kindName%2522(withtypes)todataobject">Add new property "kindName" (with types) to data object</a></li><li><a href="global.html#Addnewproperty%2522name%2522(withdays)todataobject">Add new property "name" (with days) to data object</a></li><li><a href="global.html#Addnewproperty%2522name%2522(withindex)todataobject">Add new property "name" (with index) to data object</a></li><li><a href="global.html#ApiActivity">ApiActivity</a></li><li><a href="global.html#ApiAverage">ApiAverage</a></li><li><a href="global.html#ApiPerformance">ApiPerformance</a></li><li><a href="global.html#ApiScore">ApiScore</a></li><li><a href="global.html#ApiUserName">ApiUserName</a></li><li><a href="global.html#ApiVitamines">ApiVitamines</a></li><li><a href="global.html#days">days</a></li><li><a href="global.html#fetchData">fetchData</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#helloMessage">helloMessage</a></li><li><a href="global.html#hexToRgb">hexToRgb</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#MenuLeft">MenuLeft</a></li><li><a href="global.html#score">score</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu May 19 2022 12:30:51 GMT+0200 (Центральная Европа, летнее время)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
