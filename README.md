@@ -36,6 +36,8 @@ SportSee is a startup based on sports coaching. To improve the user experience, 
 
 ### 2 Frontend APP
 
+-   Go to folder "sportsee" by command cd sportsee
+
 -   Run the Frontend App, which will then listen on port 3000 by default : yarn start or npm start
 
 -   In the terminal window, you will see the message : ? something is already running on port 3000. Would you like to run the app on another port instead >> (Y/n)
