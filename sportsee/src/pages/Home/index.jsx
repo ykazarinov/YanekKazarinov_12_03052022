@@ -161,6 +161,7 @@ function Home() {
                   <div className='col-3'>
                     {myVitamins.map((vit, index) => (
                        <Vitamines 
+                       key={index}
                        Data={vit} 
                        styledData={styledData[index]}>
                      </Vitamines>
