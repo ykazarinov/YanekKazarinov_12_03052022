@@ -267,6 +267,27 @@ header{
 }
 
 
+.usr_cont{
+    padding-top: 3rem;
+}
 
+.usr_img{
+    display: flex;
+    justify-content: center;
+    
+    img{
+        background-color: $dark-grey;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem;
+
+    }
+}
+
+.usr_title{
+    display: flex;
+    justify-content: center;
+    font-size: 1rem;
+}
 
 
