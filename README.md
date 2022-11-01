@@ -2,6 +2,8 @@
 
 SportSee is a startup based on sports coaching. To improve the user experience, we have created a new version of the profile page, where you can track the number of completed sessions, as well as the number of calories burned.
 
+Demo: https://sportsee-gold.vercel.app/
+
 ## Prerequisites
 
 -   NodeJS Version 12.22.12
@@ -53,5 +55,3 @@ Currently only 2 user profiles are present in the API (12 and 18)
 ## Author information
 
 Kazarinov Yanek aka Artfish (https://artfish.pro)
-
--   Study at OpenClassrooms)
